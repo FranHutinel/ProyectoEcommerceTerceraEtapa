@@ -1,7 +1,6 @@
 import productos from "./productos.js"
 import Producto from "./Producto.js";
 
-
 function cargarTabla(listaProductos){
     let cuerpoTabla = document.querySelector(".section_mantenedor_productos tbody");
     cuerpoTabla.innerHTML = "";
@@ -15,7 +14,6 @@ function cargarTabla(listaProductos){
                     <td>${producto.descripcion}</td>
                     <td>${producto.precio}</td>
                     <td>${producto.stock}</td>
-                    <td>${producto.imagen}</td>
                 </tr>
         `
     });
@@ -45,13 +43,11 @@ inputId.addEventListener("change", (event) =>{
         crud_descripcion.value = producto.descripcion;
         crud_precio.value = producto.precio;
         crud_stock.value = producto.stock;
-        crud_imagen.value = producto.imagen;
     }else{
         crud_nombre.value = "";
         crud_descripcion.value = "";
         crud_precio.value = 0;
         crud_stock.value = 0;
-        crud_imagen.value = "";
 
     }
 })
@@ -64,9 +60,8 @@ document.getElementById("btn-agregar").addEventListener("click", (event)=> {
     let descripcion = crud_descripcion.value;
     let precio = crud_precio.value;
     let stock = crud_stock.value;
-    let imagen = crud_imagen.value;
     
-    let nuevoProducto = new Producto(id, nombre, descripcion, precio, stock, imagen);
+    let nuevoProducto = new Producto(id, nombre, descripcion, precio, stock);
     if(nuevoProducto.getProduct()){
         alert("Ya existe un producto con dicho ID.")
     }else{
@@ -102,9 +97,8 @@ document.getElementById("btn-modificar").addEventListener("click", (event)=> {
     let descripcion = crud_descripcion.value;
     let precio = crud_precio.value;
     let stock = crud_stock.value;
-    let imagen = crud_imagen.value;
-
-    let producto= new Producto(id, nombre, descripcion, precio, stock, imagen);
+    
+    let producto= new Producto(id, nombre, descripcion, precio, stock);
     if(producto.getProduct()){
         producto.updateProduct();
         cargarTabla(producto.getProducts());
@@ -125,58 +119,3 @@ function main(){
 }
 
 main();
-
-let productosStorage = JSON.parse(localStorage.getItem("productos")) || [];
-
-export default class Producto{
-    constructor(id, nombre = "", descripcion = "Sin descripción", precio = 999999, stock = 0, imagen = ""){
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion= descripcion
-        this.precio = precio;
-        this.stock = stock;
-        this.imagen = imagen;
-    }
-
-    getProducts(){
-        productosStorage = productosStorage = JSON.parse(localStorage.getItem("productos")) || []
-        return productosStorage;
-    }
-    getProduct(){
-        productosStorage = JSON.parse(localStorage.getItem("productos")) || []
-        return productosStorage.find(producto => producto.id == this.id);
-    }
-    deleteProduct(){
-        productosStorage = JSON.parse(localStorage.getItem("productos")) || []
-        productosStorage = productosStorage.filter(producto => producto.id != this.id)
-        localStorage.setItem("productos", JSON.stringify(productosStorage))
-        return productosStorage;
-    }
-    updateProduct(){
-        productosStorage = JSON.parse(localStorage.getItem("productos")) || []
-        let producto = productosStorage.find(producto => producto.id ==this.id)
-        producto.nombre= this.nombre;
-        producto.descripcion= this.descripcion;
-        producto.precio = this.precio;
-        producto.stock = this.stock;
-        producto.imagen = this.imagen;
-        localStorage.setItem("productos", JSON.stringify(productosStorage))
-        return producto;
-    }
-    addProduct(){
-        productosStorage = JSON.parse(localStorage.getItem("productos")) || []
-        productosStorage.push(
-            {
-                id: this.id,
-                nombre: this.nombre,
-                descripcion: this.descripcion,
-                precio: this.precio, 
-                stock: this.stock,
-                imagen: this.imagen
-            }
-            )
-            localStorage.setItem("productos", JSON.stringify(productosStorage))
-        return productosStorage
-    }
-
-}

@@ -1,13 +1,12 @@
 let productosStorage = JSON.parse(localStorage.getItem("productos")) || [];
 
 export default class Producto{
-    constructor(id, nombre = "", descripcion = "Sin descripción", precio = 999999, stock = 0, imagen = ""){
+    constructor(id, nombre = "", descripcion = "Sin descripción", precio = 999999, stock = 0){
         this.id = id;
         this.nombre = nombre;
         this.descripcion= descripcion
         this.precio = precio;
         this.stock = stock;
-        this.imagen = imagen;
     }
 
     getProducts(){
