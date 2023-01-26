@@ -90,6 +90,10 @@
           <li class="nav-item">
             <a class="nav-link" href="../views/productos.html">Productos</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../views/inventario.html">Matenedor</a>
+          </li>
        
         </ul>
         <li class="nav">
@@ -124,91 +128,6 @@
     </div>
   </div>
 
-  <!-- Sidebar -->
-  <nav id="sidebar">
-    <div class="sidebar-header">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-10 pl-0">
-            <a class="btn btn-primary" href="#"><i class="bx bxs-user-circle mr-1"></i>Log In</a>
-          </div>
-
-          <div class="col-2 text-left">
-            <button type="button" id="sidebarCollapseX" class="btn btn-link">
-              <i class="bx bx-x icon-single"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <ul class="list-unstyled components links">
-      <li class="active">
-        <a href="#"><i class="bx bx-home mr-3"></i> PokeHome</a>
-      </li>
-      <li>
-        <a href="#"><i class="bx bx-carousel mr-3"></i>Juegos y consolas</a>
-      </li>
-      <li>
-        <a href="#"><i class="bx bx-book-open mr-3"></i>Accesorios</a>
-      </li>
-      <li>
-        <a href="#"><i class="bx bx-crown mr-3"></i>Figuras y juguetes</a>
-      </li>
-      <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-            class="bx bx-help-circle mr-3"></i> Soporte</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li>
-            <a href="#">Información de envíos</a>
-          </li>
-          <li>
-            <a href="#">Políticas de privacidad</a>
-          </li>
-          <li>
-            <a href="#">Terminos y condiciones</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#"><i class="bx bx-phone mr-3"></i> Contacto</a>
-      </li>
-    </ul>
-
-    <h6 class="text-uppercase mb-1">Categorias</h6>
-    <ul class="list-unstyled components mb-3">
-      <li>
-        <a href="#">Juegos</a>
-      </li>
-      <li>
-        <a href="#">Consolas</a>
-      </li>
-      <li>
-        <a href="#">Accesorios</a>
-      </li>
-      <li>
-        <a href="#">Figuras</a>
-      </li>
-      <li>
-        <a href="#">Juguetes</a>
-      </li>
-    </ul>
-
-    <ul class="social-icons">
-      <li>
-        <a href="#" target="_blank" title=""><i class="bx bxl-facebook-square"></i></a>
-      </li>
-      <li>
-        <a href="#" target="_blank" title=""><i class="bx bxl-twitter"></i></a>
-      </li>
-      <li>
-        <a href="#" target="_blank" title=""><i class="bx bxl-linkedin"></i></a>
-      </li>
-      <li>
-        <a href="#" target="_blank" title=""><i class="bx bxl-instagram"></i></a>
-      </li>
-    </ul>
-  </nav>
 
   <main class="container">
     <section id="productos-carrito">
@@ -320,8 +239,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-  <script src="../assets/js/productos.js"></script>
-  <script src="../assets/js/carrito.js"></script>
+  <script type="module" src="../assets/js/carrito.js"></script>
 
 </body>
 

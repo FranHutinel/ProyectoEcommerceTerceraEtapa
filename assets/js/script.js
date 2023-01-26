@@ -1,5 +1,5 @@
-import productos from "./productos.js"
-import Producto from "./Producto.js";
+import {productos} from "./productos.js"
+import Producto from "./producto.js";
 
 function cargarTabla(listaProductos){
     let cuerpoTabla = document.querySelector(".section_mantenedor_productos tbody");
@@ -9,7 +9,7 @@ function cargarTabla(listaProductos){
     listaProductos.forEach(producto => {
         acumuladorFilas += `
                 <tr>
-                    <th scope="row">${producto.id}</th>
+                    <th scope="row">${producto.id}</th>z
                     <td>${producto.nombre}</td>
                     <td>${producto.descripcion}</td>
                     <td>${producto.precio}</td>
@@ -108,10 +108,13 @@ document.getElementById("btn-modificar").addEventListener("click", (event)=> {
 })
 
 function main(){
-    let productosStorage = JSON.parse(localStorage.getItem("productos"));
-    if(!productosStorage){
+    //let productosStorage = JSON.parse(localStorage.getItem("productos"));
+    let productosStorage;
+    if(JSON.parse(localStorage.getItem("inventario"))){
+        productosStorage = JSON.parse(localStorage.getItem("inventario"));
+    }else{
         productosStorage = productos;
-        localStorage.setItem("productos", JSON.stringify(productosStorage))
+        localStorage.setItem("inventario", JSON.stringify(productosStorage))
     }
 
     cargarTabla(productosStorage);

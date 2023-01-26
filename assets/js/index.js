@@ -1,6 +1,8 @@
 // import Swal from 'sweetalert2';
 // const Swal = require('sweetalert2');
+import {productos} from "./productos.js"
 let productosCarro = [];
+let inventario;
 
 if (localStorage.getItem("productos")) {
     productosCarro = JSON.parse(localStorage.getItem("productos"));
@@ -8,7 +10,13 @@ if (localStorage.getItem("productos")) {
     actualizarCarro(productosCarro);
   }
 
-cargarProductos(productos);
+  if(JSON.parse(localStorage.getItem("inventario"))){
+    inventario = JSON.parse(localStorage.getItem("inventario"))
+  }else{
+    inventario = productos;
+  }
+
+cargarProductos(inventario);
 
 //FUNCION ENCARGADA DE CARGAR PRODUCTOS
 function cargarProductos(listadoProductos) {
@@ -43,7 +51,7 @@ function cargarProductos(listadoProductos) {
     document.querySelector("#productos .row").innerHTML = acumulador;
   }
 
-  function viewDetails(codigo) {
+  window.viewDetails = (codigo) => {
 
     //FindBy Codigo (SKU)
     const response = productos.find(productoSel => productoSel.sku === codigo);
@@ -73,7 +81,7 @@ function cargarProductos(listadoProductos) {
   }
   
 
-  function addToCart(sku) {
+  window.addToCart = (sku) => {
     let objProducto = {
       sku,
       cantidad: 1,
