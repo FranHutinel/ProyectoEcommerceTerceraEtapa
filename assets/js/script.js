@@ -9,7 +9,7 @@ function cargarTabla(listaProductos){
     listaProductos.forEach(producto => {
         acumuladorFilas += `
                 <tr>
-                    <th scope="row">${producto.id}</th>z
+                    <th scope="row">${producto.id}</th>
                     <td>${producto.nombre}</td>
                     <td>${producto.descripcion}</td>
                     <td>${producto.precio}</td>
