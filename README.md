@@ -57,4 +57,4 @@ Cupones de descuento:
         Cupon3: 50%       
     
 
-Link GITHUB PAGE : https://franhutinel.github.io/ProyectoEcommerceSegundaEtapa/
+Link GITHUB PAGE : https://github.com/FranHutinel/ProyectoEcommerceTerceraEtapa
